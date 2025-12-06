@@ -10,7 +10,7 @@ function lookup()
 {
     let country = document.getElementById("country").value;
 
-    fetch("world.php?country=" + country)
+    fetch("world.php?country=" + encodeURIComponent(country))
     .then(response => response.text())
     .then(data => {
         document.getElementById("result").innerHTML = data;
@@ -21,7 +21,7 @@ function lookupCities()
 {
     let country = document.getElementById("country").value;
 
-    fetch(`world.php?country=${country}&lookup=cities`)
+    fetch(`world.php?country=${encodeURIComponent(country)}&lookup=cities`)
     .then(response => response.text())
     .then(data => {
         document.getElementById("result").innerHTML = data;
